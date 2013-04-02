@@ -20,7 +20,7 @@ public class Player {
     private float width;
     private float height;
     private double coneDistance;
-
+    private double coneChoke;
     private float speed;
 
 
@@ -32,6 +32,7 @@ public class Player {
         this.width = width;
         this.height = height;
         this.coneDistance = 200d;
+        this.coneChoke = 100d;
 
     }
 
@@ -80,13 +81,45 @@ public class Player {
 
             double x1 = (x / distance) * coneDistance + actX;
             double y1 = (y / distance) * coneDistance + actY;
-            //System.out.println("Mouse ("+getMouseX()+" "+getMouseY()+") Act ("+actX+" "+actY+") Distance: ("+distance+") X1Y1 ("+x1+" "+y1+")");
+
+
+
             GL11.glBegin(GL11.GL_LINE_STRIP);
-
-                GL11.glVertex2f((float)actX,(float)actY);
-                GL11.glVertex2f((float)x1,(float)y1);
-
+                GL11.glVertex2d(actX,actY);
+                GL11.glVertex2d(x1,y1);
             GL11.glEnd();
+
+            double angle = Math.sin(y1 / coneDistance);
+
+            double x2 = (x / distance) * (coneChoke / 2);
+            double y2 = (y / distance) * (coneChoke / 2);
+
+            double perpX1 = y2 + x1;
+            double perpY1 = -x2 + y1;
+
+            double perpX2 = -y2 + x1;
+            double perpY2 = x2 + y1;
+
+            GL11.glBegin(GL11.GL_LINE_STRIP);
+                GL11.glVertex2d(x1,y1);
+                GL11.glVertex2d(perpX1,perpY1);
+            GL11.glEnd();
+
+            GL11.glBegin(GL11.GL_LINE_STRIP);
+                GL11.glVertex2d(x1,y1);
+                GL11.glVertex2d(perpX2,perpY2);
+            GL11.glEnd();
+
+            GL11.glBegin(GL11.GL_LINE_STRIP);
+                GL11.glVertex2d(actX,actY);
+                GL11.glVertex2d(perpX1,perpY1);
+            GL11.glEnd();
+
+            GL11.glBegin(GL11.GL_LINE_STRIP);
+                GL11.glVertex2d(actX,actY);
+                GL11.glVertex2d(perpX2,perpY2);
+            GL11.glEnd();
+
             GL11.glPopMatrix();
         } catch (Exception e) {
             e.printStackTrace();
