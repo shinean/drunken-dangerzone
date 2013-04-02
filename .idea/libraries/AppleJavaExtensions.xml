@@ -12,6 +12,8 @@
       <root url="jar://$PROJECT_DIR$/lib/lwjgl/jar/lzma.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/lib/lwjgl/native/linux" />
+    </SOURCES>
   </library>
 </component>
