@@ -3,6 +3,7 @@ package com.shidan.display;
 import com.shidan.asset.player.Player;
 import com.shidan.asset.sprite.Sprite;
 import com.shidan.asset.sprite.SpriteStore;
+import com.shidan.core.exception.NoSpriteFoundException;
 
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
@@ -47,6 +48,8 @@ public class MainWindow {
 			System.exit(1);
 		}
 
+//		MainWindow.debug = true; // For Debugging reasons!
+		
         Player p = new Player(150,150,20,20);
 
         glMatrixMode(GL_PROJECTION);
@@ -54,7 +57,7 @@ public class MainWindow {
         glOrtho(0,800,0,600,1,-1);
         glMatrixMode(GL_MODELVIEW);
         
-        Sprite player = SpriteStore.get("/home/jdaniel/Pictures/dafuaq.png");
+        Sprite player = SpriteStore.get("/home/jdaniel/Pictures/dafuq.png");
         
         if (player != null);	// needed, because if the sprite could not be read, SpriteStore returns null.
         

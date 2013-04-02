@@ -7,7 +7,9 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import com.shidan.core.exception.SpriteCreationFailedException;
 import com.shidan.display.MainWindow;
+import com.shidan.service.CounterService;
 
 /**
  * 
@@ -18,14 +20,20 @@ import com.shidan.display.MainWindow;
  */
 
 public class Sprite {
-
+	
+	// TODO: Implement the below with real values for the type variable
+//	private static final int PNG = 1;
+//	private static final int JPG = 2;
+	
+	
 	private BufferedImage image;
 	private int width;
 	private int height;
 	private int type;
+	private int spriteId;
 	private String url;
 	
-	public boolean setImage(String url) {
+	public boolean setImage(String url) throws SpriteCreationFailedException {
 		
 		try {
 			File file = new File(url);
@@ -35,20 +43,21 @@ public class Sprite {
 			this.height = image.getHeight();
 			this.type = image.getType();
 			this.url = url;
-			
+			this.spriteId = CounterService.incrementSprite();
 		
 		} catch (IOException e) {
 			if (MainWindow.getDebug()) {
 				e.printStackTrace();		
 			} 
 			
-			return false;
+			throw new SpriteCreationFailedException();
 		}
 			
 		return true;
 	}
 	
-	public boolean setImage(BufferedImage image, int width, int height, int type, String url) {
+	public boolean setImage(BufferedImage image, int width, int height, int type, String url) 
+			throws SpriteCreationFailedException {
 			
 		File file = new File(url);
 		
@@ -62,7 +71,7 @@ public class Sprite {
 				if (MainWindow.getDebug()) {
 					e.printStackTrace();
 				}
-				return false;
+				throw new SpriteCreationFailedException();
 			}
 			
 			
@@ -91,6 +100,11 @@ public class Sprite {
 	public int getType() {
 		return type;
 	}
+	
+	public int getSpriteId() {
+		return spriteId;
+	}
+
 	
 	public String getUrl() {
 		return url;
