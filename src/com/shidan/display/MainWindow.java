@@ -1,6 +1,7 @@
-package com.djavorszky.display;
+package com.shidan.display;
 
-import com.djavorszky.asset.player.Player;
+import com.shidan.asset.player.Player;
+
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;

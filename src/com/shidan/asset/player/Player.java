@@ -1,4 +1,4 @@
-package com.djavorszky.asset.player;
+package com.shidan.asset.player;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
