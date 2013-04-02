@@ -3,6 +3,7 @@ package com.djavorszky.asset.player;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
+import org.lwjgl.util.Point;
 import org.lwjgl.util.glu.GLU;
 import org.lwjgl.util.vector.Vector2f;
 
@@ -18,9 +19,8 @@ public class Player {
     private float y;
     private float width;
     private float height;
-    private float coneWidth;
-    private float coneHeight;
-    private float rotation = 0;
+    private double coneDistance;
+
     private float speed;
 
 
@@ -31,9 +31,8 @@ public class Player {
         this.speed = 0.1f;
         this.width = width;
         this.height = height;
-        this.coneWidth = 200f;
-        this.coneHeight = 50f;
-        this.rotation = 0.1f;
+        this.coneDistance = 200d;
+
     }
 
     /**
@@ -43,7 +42,6 @@ public class Player {
         try {
             GL11.glPushMatrix();
             GL11.glColor3f(0.5f, 0.5f, 1.0f);
-
             GL11.glBegin(GL11.GL_QUADS);
                 GL11.glVertex2f(x,y);
                 GL11.glVertex2f(x+width,y);
@@ -67,16 +65,26 @@ public class Player {
     public void drawViewCone() {
         try {
             GL11.glColor3f(0.5f,0.0f,0.0f);
-            float actX = x + (width / 2);
-            float actY = y + (height / 2);
-            Vector2f playerVector = new Vector2f(actX,actY);
-            Vector2f mouseVector = new Vector2f(getMouseX(),getMouseY());
+            double actX = x + (width / 2);
+            double actY = y + (height / 2);
+
             GL11.glLoadIdentity();
             GL11.glPushMatrix();
 
+            int mouseX = getMouseX();
+            int mouseY = getMouseY();
+            double x = mouseX - actX;
+            double y = mouseY - actY;
+
+            double distance = Math.sqrt(x*x+y*y);
+
+            double x1 = (x / distance) * coneDistance + actX;
+            double y1 = (y / distance) * coneDistance + actY;
+            //System.out.println("Mouse ("+getMouseX()+" "+getMouseY()+") Act ("+actX+" "+actY+") Distance: ("+distance+") X1Y1 ("+x1+" "+y1+")");
             GL11.glBegin(GL11.GL_LINE_STRIP);
-                GL11.glVertex2f(actX,actY);
-                GL11.glVertex2f(getMouseX(), getMouseY());
+
+                GL11.glVertex2f((float)actX,(float)actY);
+                GL11.glVertex2f((float)x1,(float)y1);
 
             GL11.glEnd();
             GL11.glPopMatrix();
