@@ -21,7 +21,7 @@ import static org.lwjgl.opengl.GL11.*;
  * 
  * Sprite class for the win.
  * 
- * @author jdaniel
+ * @author Dániel Jávorszky
  * 
  */
 

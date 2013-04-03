@@ -12,7 +12,8 @@ import static org.lwjgl.opengl.GL11.*;
 
 /**
  * Abstract class Asset. Should be the superclass of all other assets.
- * @author jdaniel
+ * 
+ * @author Dániel Jávorszky
  *
  */
 

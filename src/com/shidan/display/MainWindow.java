@@ -53,7 +53,7 @@ public class MainWindow {
 		MainWindow.debug = true;
 		
 
-        Sprite playerSprite = SpriteStore.get("/home/jdaniel/Pictures/dafuq.png");
+        Sprite playerSprite = SpriteStore.get("/home/jdaniel/Pictures/testSprite.png");
         
 		
 		Player p = new Player(playerSprite, 150,150,20,20);
@@ -78,9 +78,8 @@ public class MainWindow {
 
 
             Display.update();
-            Display.sync(60);
+           // Display.sync(60);
 		}
-		
 		
 		Display.destroy();
 			

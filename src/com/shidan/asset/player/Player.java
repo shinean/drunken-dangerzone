@@ -28,6 +28,7 @@ import com.shidan.asset.sprite.Sprite;
  * User controller class
  *
  * @author Sándor Juhász
+ * @author Dániel Jávorszky
  */
 public class Player extends Asset implements Moveable {
 
@@ -57,7 +58,7 @@ public class Player extends Asset implements Moveable {
     /**
      * Draws a player quad (TODO: replace with an image)
      */
-    public void drawAsset(Sprite sprite, int x, int y, int width, int height) {
+    public void drawAsset(Sprite sprite, float x, float y, float width, float height) {
         try {
 
     		glEnable(GL_TEXTURE_2D);
