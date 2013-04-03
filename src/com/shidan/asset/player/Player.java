@@ -1,5 +1,17 @@
 package com.shidan.asset.player;
 
+import static org.lwjgl.opengl.GL11.GL_QUADS;
+import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
+import static org.lwjgl.opengl.GL11.glBegin;
+import static org.lwjgl.opengl.GL11.glBindTexture;
+import static org.lwjgl.opengl.GL11.glColor3f;
+import static org.lwjgl.opengl.GL11.glEnable;
+import static org.lwjgl.opengl.GL11.glEnd;
+import static org.lwjgl.opengl.GL11.glPopMatrix;
+import static org.lwjgl.opengl.GL11.glPushMatrix;
+import static org.lwjgl.opengl.GL11.glTexCoord2f;
+import static org.lwjgl.opengl.GL11.glVertex2f;
+
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
@@ -7,13 +19,17 @@ import org.lwjgl.util.Point;
 import org.lwjgl.util.glu.GLU;
 import org.lwjgl.util.vector.Vector2f;
 
+import com.shidan.asset.Asset;
+import com.shidan.asset.modifier.Moveable;
+import com.shidan.asset.sprite.Sprite;
+
 
 /**
  * User controller class
  *
  * @author Sándor Juhász
  */
-public class Player {
+public class Player extends Asset implements Moveable {
 
     private float x;
     private float y;
@@ -22,11 +38,13 @@ public class Player {
     private double coneDistance;
     private double coneChoke;
     private float speed;
+    
+    private Sprite sprite;
 
 
-
-    public Player(float x,float y,float width,float height) {
-        this.x = x;
+    public Player(Sprite sprite, float x,float y,float width,float height) {
+        this.sprite = sprite;    	
+    	this.x = x;
         this.y = y;
         this.speed = 0.1f;
         this.width = width;
@@ -39,17 +57,29 @@ public class Player {
     /**
      * Draws a player quad (TODO: replace with an image)
      */
-    public void drawPlayer() {
+    public void drawAsset(Sprite sprite, int x, int y, int width, int height) {
         try {
-            GL11.glPushMatrix();
-            GL11.glColor3f(0.5f, 0.5f, 1.0f);
-            GL11.glBegin(GL11.GL_QUADS);
-                GL11.glVertex2f(x,y);
-                GL11.glVertex2f(x+width,y);
-                GL11.glVertex2f(x+width,y+height);
-                GL11.glVertex2f(x,y+height);
-            GL11.glEnd();
-            GL11.glPopMatrix();
+
+    		glEnable(GL_TEXTURE_2D);
+
+    		glPushMatrix();
+    		glColor3f(1f, 1f, 1f);
+    		glBindTexture(GL_TEXTURE_2D, sprite.getTextureId());
+    		glBegin(GL_QUADS);
+    			glTexCoord2f(0, 1);
+    			glVertex2f(x, y);
+    	
+    			glTexCoord2f(1, 1);
+    			glVertex2f(x + width, y);
+    	
+    			glTexCoord2f(1, 0);
+    			glVertex2f(x + width, y + height);
+    	
+    			glTexCoord2f(0, 0);
+    			glVertex2f(x, y + height);
+    		glEnd();
+    		glPopMatrix();
+    		
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -126,10 +156,18 @@ public class Player {
         }
     }
 
+    public void drawAsset() {
+    	
+    	drawAsset(sprite, x, y, width, height);
+  
+    }
+    
+    
+    
     /**
      * Player controls  (TODO: watch for window sides)
      */
-    public void playerInput() {
+    public void processInput() {
             if (Keyboard.isKeyDown(Keyboard.KEY_A)) {
                 this.x -= speed;
             }
