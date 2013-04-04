@@ -139,18 +139,18 @@ public class Player extends Asset implements Moveable {
     /**
      * Player controls  (TODO: watch for window sides)
      */
-    public void processInput() {
+    public void processInput(int delta) {
         if (Keyboard.isKeyDown(Keyboard.KEY_A)) {
-            this.x -= speed;
+            this.x -= speed * delta;
         }
         if (Keyboard.isKeyDown(Keyboard.KEY_D)) {
-            this.x += speed;
+            this.x += speed * delta;
         }
         if (Keyboard.isKeyDown(Keyboard.KEY_W)) {
-            this.y += speed;
+            this.y += speed * delta;
         }
         if (Keyboard.isKeyDown(Keyboard.KEY_S)) {
-            this.y -= speed;
+            this.y -= speed * delta;
         }
     }
 
