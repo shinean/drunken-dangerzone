@@ -1,9 +1,7 @@
 package com.shidan.asset;
 
 import java.awt.Color;
-import org.lwjgl.opengl.GL11;
 
-import com.shidan.asset.draw.Primitives;
 import com.shidan.asset.sprite.Sprite;
 import static org.lwjgl.opengl.GL11.*;
 
@@ -50,15 +48,15 @@ public abstract class Asset {
 	}
 	
 	public void drawColorAsset(int x, int y, int width, int height, Color color) {
-		 GL11.glPushMatrix();
-         GL11.glColor3f(color.getRed(), color.getGreen(), color.getBlue());
-         GL11.glBegin(GL11.GL_QUADS);
-             GL11.glVertex2f(x,y);
-             GL11.glVertex2f(x+width,y);
-             GL11.glVertex2f(x+width,y+height);
-             GL11.glVertex2f(x,y+height);
-         GL11.glEnd();
-         GL11.glPopMatrix();
+		 glPushMatrix();
+         glColor3f(color.getRed(), color.getGreen(), color.getBlue());
+         glBegin(GL_QUADS);
+             glVertex2f(x,y);
+             glVertex2f(x+width,y);
+             glVertex2f(x+width,y+height);
+             glVertex2f(x,y+height);
+         glEnd();
+         glPopMatrix();
 	}
 
 	public void drawColorAsset(int x, int y, int width, int height, float red, float green, float blue) {

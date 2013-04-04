@@ -4,14 +4,16 @@ import static org.lwjgl.opengl.GL11.*;
 //import static org.lwjgl.opengl.GL20.*; if we want to make shaders
 
 import com.shidan.asset.detector.Detector;
-import com.shidan.asset.draw.Primitives;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 
 
 import com.shidan.asset.Asset;
 import com.shidan.asset.modifier.Moveable;
+import com.shidan.asset.objects.Primitives;
 import com.shidan.asset.sprite.Sprite;
+import com.shidan.core.Props;
+
 import org.lwjgl.util.vector.Vector2f;
 
 
@@ -32,7 +34,7 @@ public class Player extends Asset implements Moveable {
     private float speed;
     private Sprite sprite;
 
-    public Player(Sprite sprite, float x,float y,float width,float height) {
+    public Player(Sprite sprite, float x, float y, float width, float height) {
         this.sprite = sprite;
         this.x = x;
         this.y = y;
@@ -67,7 +69,6 @@ public class Player extends Asset implements Moveable {
             e.printStackTrace();
         }
     }
-
 
     /**
      * Draws the flashlight's cone
@@ -147,7 +148,8 @@ public class Player extends Asset implements Moveable {
             this.y -= speed * delta;
         }
 
-        Vector2f collide = Detector.detectAreaCollision(this.x, this.y,this.width,this.height, 0, 0, 800, 600);
+        Vector2f collide = Detector.detectAreaCollision(this.x, this.y, this.width, 
+        		this.height, 0, 0, Props.DISPLAY_WIDTH, Props.DISPLAY_HEIGHT);
         this.x = collide.x;
         this.y = collide.y;
         testColor = Detector.detectObjectCollision(
@@ -182,8 +184,6 @@ public class Player extends Asset implements Moveable {
     private int getMouseY() {
         return Mouse.getY();
     }
-
-
 
 
 
