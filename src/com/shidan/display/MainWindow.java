@@ -58,7 +58,7 @@ public class MainWindow {
 
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
-        glOrtho(0,800,0,600,1,-1);
+        glOrtho(0,Props.DISPLAY_WIDTH,0,Props.DISPLAY_HEIGHT,1,-1);
         glMatrixMode(GL_MODELVIEW);
         
         //Sprite player = SpriteStore.get("/home/jdaniel/Pictures/dafuq.png");
