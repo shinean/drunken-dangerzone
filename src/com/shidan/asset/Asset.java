@@ -64,9 +64,7 @@ public abstract class Asset {
 	}
 
 	public void drawColorAsset(int x, int y, int width, int height, float red, float green, float blue) {
-		
 		Color color = new Color(red, green, blue);
-		
 		drawColorAsset(x, y, width, height, color);
 	}
 }

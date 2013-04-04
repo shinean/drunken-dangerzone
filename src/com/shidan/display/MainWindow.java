@@ -3,6 +3,7 @@ package com.shidan.display;
 import java.util.ArrayList;
 
 import com.shidan.asset.player.Player;
+import com.shidan.asset.shader.ShaderLoader;
 import com.shidan.asset.sprite.Sprite;
 import com.shidan.asset.sprite.SpriteStore;
 import com.shidan.core.exception.NoSpriteFoundException;
@@ -53,7 +54,7 @@ public class MainWindow {
 		MainWindow.debug = true;
 		
 
-        Sprite playerSprite = SpriteStore.get("/home/jdaniel/Pictures/testSprite.png");
+        Sprite playerSprite = SpriteStore.get("img/testSprite.png");
         
 		
 		Player p = new Player(playerSprite, 150,150,20,20);
@@ -63,10 +64,10 @@ public class MainWindow {
         glOrtho(0,800,0,600,1,-1);
         glMatrixMode(GL_MODELVIEW);
         
-        Sprite player = SpriteStore.get("/home/jdaniel/Pictures/dafuq.png");
+        //Sprite player = SpriteStore.get("/home/jdaniel/Pictures/dafuq.png");
         
-        if (player != null);	// needed, because if the sprite could not be read, SpriteStore returns null.      
-        
+        if (p != null);	// needed, because if the sprite could not be read, SpriteStore returns null.
+
 		while (!Display.isCloseRequested()) {
 			
 			// TODO logic

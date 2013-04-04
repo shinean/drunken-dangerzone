@@ -1,23 +1,14 @@
 package com.shidan.asset.player;
 
-import static org.lwjgl.opengl.GL11.GL_QUADS;
-import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
-import static org.lwjgl.opengl.GL11.glBegin;
-import static org.lwjgl.opengl.GL11.glBindTexture;
-import static org.lwjgl.opengl.GL11.glColor3f;
-import static org.lwjgl.opengl.GL11.glEnable;
-import static org.lwjgl.opengl.GL11.glEnd;
-import static org.lwjgl.opengl.GL11.glPopMatrix;
-import static org.lwjgl.opengl.GL11.glPushMatrix;
-import static org.lwjgl.opengl.GL11.glTexCoord2f;
-import static org.lwjgl.opengl.GL11.glVertex2f;
+import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL20.*;
 
+import com.shidan.asset.draw.Primitives;
+import com.shidan.asset.shader.ShaderLoader;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
-import org.lwjgl.util.Point;
-import org.lwjgl.util.glu.GLU;
-import org.lwjgl.util.vector.Vector2f;
+
 
 import com.shidan.asset.Asset;
 import com.shidan.asset.modifier.Moveable;
@@ -39,20 +30,17 @@ public class Player extends Asset implements Moveable {
     private double coneDistance;
     private double coneChoke;
     private float speed;
-    
     private Sprite sprite;
 
-
     public Player(Sprite sprite, float x,float y,float width,float height) {
-        this.sprite = sprite;    	
-    	this.x = x;
+        this.sprite = sprite;
+        this.x = x;
         this.y = y;
         this.speed = 0.1f;
         this.width = width;
         this.height = height;
         this.coneDistance = 200d;
         this.coneChoke = 100d;
-
     }
 
     /**
@@ -60,27 +48,21 @@ public class Player extends Asset implements Moveable {
      */
     public void drawAsset(Sprite sprite, float x, float y, float width, float height) {
         try {
-
-    		glEnable(GL_TEXTURE_2D);
-
-    		glPushMatrix();
-    		glColor3f(1f, 1f, 1f);
-    		glBindTexture(GL_TEXTURE_2D, sprite.getTextureId());
-    		glBegin(GL_QUADS);
-    			glTexCoord2f(0, 1);
-    			glVertex2f(x, y);
-    	
-    			glTexCoord2f(1, 1);
-    			glVertex2f(x + width, y);
-    	
-    			glTexCoord2f(1, 0);
-    			glVertex2f(x + width, y + height);
-    	
-    			glTexCoord2f(0, 0);
-    			glVertex2f(x, y + height);
-    		glEnd();
-    		glPopMatrix();
-    		
+            glEnable(GL_TEXTURE_2D);
+            glPushMatrix();
+            glColor3f(1f, 1f, 1f);
+            glBindTexture(GL_TEXTURE_2D, sprite.getTextureId());
+            glBegin(GL_QUADS);
+                glTexCoord2f(0, 1);
+                glVertex2f(x, y);
+                glTexCoord2f(1, 1);
+                glVertex2f(x + width, y);
+                glTexCoord2f(1, 0);
+                glVertex2f(x + width, y + height);
+                glTexCoord2f(0, 0);
+                glVertex2f(x, y + height);
+            glEnd();
+            glPopMatrix();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -96,91 +78,80 @@ public class Player extends Asset implements Moveable {
 
     public void drawViewCone() {
         try {
-            GL11.glColor3f(0.5f,0.0f,0.0f);
-            double actX = x + (width / 2);
-            double actY = y + (height / 2);
-
-            GL11.glLoadIdentity();
-            GL11.glPushMatrix();
-
+            glColor3f(0f,0.0f,0.0f);
+            // calculate the square's middle point
+            double ax = x + (width / 2);
+            double ay = y + (height / 2);
+            // gets the mouse cursor point
             int mouseX = getMouseX();
             int mouseY = getMouseY();
-            double x = mouseX - actX;
-            double y = mouseY - actY;
-
-            double distance = Math.sqrt(x*x+y*y);
-
-            double x1 = (x / distance) * coneDistance + actX;
-            double y1 = (y / distance) * coneDistance + actY;
-
-
-
-            GL11.glBegin(GL11.GL_LINE_STRIP);
-                GL11.glVertex2d(actX,actY);
-                GL11.glVertex2d(x1,y1);
-            GL11.glEnd();
-
-            double angle = Math.sin(y1 / coneDistance);
-
+            // needed x and y
+            double x = mouseX - ax;
+            double y = mouseY - ay;
+            // mouse and square distance
+            double distance = Math.sqrt(x * x + y * y);
+            // first line of the viewcone (square -> cursor - cone distance vector)
+            double x1 = (x / distance) * coneDistance + ax;
+            double y1 = (y / distance) * coneDistance + ay;
+            // perpendicular line (half of the cone max length)
             double x2 = (x / distance) * (coneChoke / 2);
             double y2 = (y / distance) * (coneChoke / 2);
+            // calculate the first perpendicular line's points
+            double bx = y2 + x1;
+            double by = -x2 + y1;
+            // calculate the second perpendicular line's points
+            double cx = -y2 + x1;
+            double cy = x2 + y1;
+            // draw all this shit
+            glLoadIdentity();
+            glPushMatrix();
+            // Player to cursor line
+            Primitives.line(ax,  ay, x1, y1,"0,0,0","0,0,0");
+            // Perpeticular line 1
+            Primitives.line(x1,  y1, bx, by,"0,1,0","0,0,1");
+            // Perpeticular line 2
+            Primitives.line(x1,  y1, cx, cy,"0,1,0","0,0,1");
+            // Side line 1
+            Primitives.line(ax,  ay, bx, by,"0,0,0","0,1,0");
+            // Side line 2
+            Primitives.line(ax,  ay, cx, cy,"0,0,0","0,1,0");
+            glPopMatrix();
+            glPushMatrix();
+            // Orientation indicator
+            glColor3f(0f,1.0f,0.0f);
+            Primitives.circle(x1,y1,5,10);
+            glPopMatrix();
 
-            double perpX1 = y2 + x1;
-            double perpY1 = -x2 + y1;
-
-            double perpX2 = -y2 + x1;
-            double perpY2 = x2 + y1;
-
-            GL11.glBegin(GL11.GL_LINE_STRIP);
-                GL11.glVertex2d(x1,y1);
-                GL11.glVertex2d(perpX1,perpY1);
-            GL11.glEnd();
-
-            GL11.glBegin(GL11.GL_LINE_STRIP);
-                GL11.glVertex2d(x1,y1);
-                GL11.glVertex2d(perpX2,perpY2);
-            GL11.glEnd();
-
-            GL11.glBegin(GL11.GL_LINE_STRIP);
-                GL11.glVertex2d(actX,actY);
-                GL11.glVertex2d(perpX1,perpY1);
-            GL11.glEnd();
-
-            GL11.glBegin(GL11.GL_LINE_STRIP);
-                GL11.glVertex2d(actX,actY);
-                GL11.glVertex2d(perpX2,perpY2);
-            GL11.glEnd();
-
-            GL11.glPopMatrix();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void drawAsset() {
-    	
-    	drawAsset(sprite, x, y, width, height);
-  
+    public double getViewConeArea() {
+        return Primitives.triangleArea(coneChoke,coneDistance);
     }
-    
-    
-    
+
+
+    public void drawAsset() {
+        drawAsset(sprite, x, y, width, height);
+    }
+
     /**
      * Player controls  (TODO: watch for window sides)
      */
     public void processInput() {
-            if (Keyboard.isKeyDown(Keyboard.KEY_A)) {
-                this.x -= speed;
-            }
-            if (Keyboard.isKeyDown(Keyboard.KEY_D)) {
-                this.x += speed;
-            }
-            if (Keyboard.isKeyDown(Keyboard.KEY_W)) {
-                this.y += speed;
-            }
-            if (Keyboard.isKeyDown(Keyboard.KEY_S)) {
-                this.y -= speed;
-            }
+        if (Keyboard.isKeyDown(Keyboard.KEY_A)) {
+            this.x -= speed;
+        }
+        if (Keyboard.isKeyDown(Keyboard.KEY_D)) {
+            this.x += speed;
+        }
+        if (Keyboard.isKeyDown(Keyboard.KEY_W)) {
+            this.y += speed;
+        }
+        if (Keyboard.isKeyDown(Keyboard.KEY_S)) {
+            this.y -= speed;
+        }
     }
 
 
