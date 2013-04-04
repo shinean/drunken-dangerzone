@@ -1,5 +1,7 @@
 package com.shidan.display;
 
+import java.util.ArrayList;
+
 import com.shidan.asset.player.Player;
 import com.shidan.asset.sprite.Sprite;
 import com.shidan.asset.sprite.SpriteStore;
@@ -48,9 +50,13 @@ public class MainWindow {
 			System.exit(1);
 		}
 
-//		MainWindow.debug = true; // For Debugging reasons!
+		MainWindow.debug = true;
 		
-        Player p = new Player(150,150,20,20);
+
+        Sprite playerSprite = SpriteStore.get("/home/jdaniel/Pictures/testSprite.png");
+        
+		
+		Player p = new Player(playerSprite, 150,150,20,20);
 
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
@@ -59,24 +65,21 @@ public class MainWindow {
         
         Sprite player = SpriteStore.get("/home/jdaniel/Pictures/dafuq.png");
         
-        if (player != null);	// needed, because if the sprite could not be read, SpriteStore returns null.
-        
+        if (player != null);	// needed, because if the sprite could not be read, SpriteStore returns null.      
         
 		while (!Display.isCloseRequested()) {
 			
 			// TODO logic
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-
-            p.playerInput();
+            p.processInput();
             p.drawViewCone();
-            p.drawPlayer();
+            p.drawAsset();
 
 
             Display.update();
-
+           // Display.sync(60);
 		}
-		
 		
 		Display.destroy();
 			
