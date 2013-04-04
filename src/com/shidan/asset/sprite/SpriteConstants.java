@@ -1,5 +1,11 @@
 package com.shidan.asset.sprite;
 
+/**
+ * 
+ * @author Dániel Jávorszky
+ *
+ */
+
 public class SpriteConstants {
 
 	public static final int LOADED = 1;

@@ -5,6 +5,12 @@ import static org.lwjgl.opengl.GL11.*;
 import com.shidan.asset.Asset;
 import com.shidan.asset.sprite.Sprite;
 
+/**
+ * 
+ * @author Dániel Jávorszky
+ *
+ */
+
 public class GenericObject extends Asset {
 
 public void drawAsset(Sprite sprite, float x, float y, float width, float height) {
@@ -30,7 +36,5 @@ public void drawAsset(Sprite sprite, float x, float y, float width, float height
 		glPopMatrix();
 
 	}
-	
-	
 	
 }

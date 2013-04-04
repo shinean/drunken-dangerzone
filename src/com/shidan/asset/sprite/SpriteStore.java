@@ -81,4 +81,20 @@ public class SpriteStore {
 		return getSpriteMapRow(name, heightStart, height, width, iteration);
 	}
 	
+	// TODO: Test the below
+	
+	public static ArrayList<ArrayList<Sprite>> processSiteMap(String name, int height, int width) {
+		Sprite s = SpriteStore.fetch(name);
+		int rows =  s.getHeight() / height;
+		int columns = s.getWidth() / width;
+		
+		ArrayList<ArrayList<Sprite>> result = new ArrayList<ArrayList<Sprite>>();
+		
+		for (int i = 0; i < rows; i++) {
+			result.add(getSpriteMapRow(name, i*height, height, width, columns));
+		}
+		
+		return result;
+	}
+	
 }
