@@ -1,7 +1,20 @@
 package com.shidan.asset.sprite;
 
+import static org.lwjgl.opengl.GL11.GL_LINEAR;
+import static org.lwjgl.opengl.GL11.GL_RGBA;
+import static org.lwjgl.opengl.GL11.GL_RGBA8;
+import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
+import static org.lwjgl.opengl.GL11.GL_TEXTURE_MAG_FILTER;
+import static org.lwjgl.opengl.GL11.GL_TEXTURE_MIN_FILTER;
+import static org.lwjgl.opengl.GL11.GL_TEXTURE_WRAP_S;
+import static org.lwjgl.opengl.GL11.GL_TEXTURE_WRAP_T;
+import static org.lwjgl.opengl.GL11.GL_UNSIGNED_BYTE;
+import static org.lwjgl.opengl.GL11.glBindTexture;
+import static org.lwjgl.opengl.GL11.glGenTextures;
+import static org.lwjgl.opengl.GL11.glTexImage2D;
+import static org.lwjgl.opengl.GL11.glTexParameteri;
+
 import java.awt.image.BufferedImage;
-import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -14,8 +27,6 @@ import org.lwjgl.opengl.GL12;
 import com.shidan.core.exception.SpriteCreationFailedException;
 import com.shidan.display.MainWindow;
 import com.shidan.service.CounterService;
-
-import static org.lwjgl.opengl.GL11.*;
 
 /**
  * 
@@ -36,21 +47,21 @@ public class Sprite {
 	private int spriteId;
 	private String url;
 	private int textureId;
-
-	private static final int BYTES_PER_PIXEL = 4;
-
-	public boolean setImage(String url) throws SpriteCreationFailedException {
+	private int type;
+	
+	public boolean buildSprite(String url) throws SpriteCreationFailedException {
 
 		try {
 			File file = new File(url);
-			image = ImageIO.read(file);
+			this.image = ImageIO.read(file);
 
 			this.width = image.getWidth();
 			this.height = image.getHeight();
 			this.url = url;
 			this.spriteId = CounterService.incrementSprite();
 			this.textureId = getTextureId(image);
-
+			this.type = SpriteConstants.LOADED;
+			
 		} catch (IOException e) {
 			if (MainWindow.getDebug()) {
 				e.printStackTrace();
@@ -62,36 +73,13 @@ public class Sprite {
 		return true;
 	}
 
-	public boolean setImage(BufferedImage image, int width, int height,
+	public boolean buildSprite(BufferedImage image, int width, int height,
 			String url) throws SpriteCreationFailedException {
 
 		
-		if (url == null) {
-
-			try {
-				File file = new File("/home/jdaniel/tmp/");
-				file.createNewFile();
-				ImageIO.write((RenderedImage) image, "test.png", file);
-
-			} catch (IOException e) {
-				if (MainWindow.getDebug()) {
-					e.printStackTrace();
-				}
-				throw new SpriteCreationFailedException();
-			}
-
-			this.image = image;
-			this.width = image.getWidth();
-			this.height = image.getHeight();
-			this.url = url;
-			this.textureId = getTextureId(image);
-
-			return true;
-
-		} else {
-			return setImage(url);
-		}
-
+		
+		
+		return false;	
 	}
 
 	private int getTextureId(BufferedImage image) {
@@ -101,7 +89,7 @@ public class Sprite {
 				image.getWidth());
 
 		ByteBuffer buffer = BufferUtils.createByteBuffer(image.getWidth()
-				* image.getHeight() * BYTES_PER_PIXEL); // 4 for RGBA, 3 for RGB
+				* image.getHeight() * SpriteConstants.BYTES_PER_PIXEL); // 4 for RGBA, 3 for RGB
 
 		for (int y = 0; y < image.getHeight(); y++) {
 			for (int x = 0; x < image.getWidth(); x++) {
@@ -162,14 +150,9 @@ public class Sprite {
 	public int getTextureId() {
 		return this.textureId;
 	}
-
-	public int hashcode() {
-		int code = 0;
-		for (char c : url.toCharArray()) {
-			code += c;
-		}
-
-		return code + (width / 2) + (height * 3) - spriteId;
+	
+	public int getType() {
+		return this.type;
 	}
 
 }

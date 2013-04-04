@@ -2,6 +2,8 @@ package com.shidan.asset;
 
 import java.awt.Color;
 import org.lwjgl.opengl.GL11;
+
+import com.shidan.asset.draw.Primitives;
 import com.shidan.asset.sprite.Sprite;
 import static org.lwjgl.opengl.GL11.*;
 
@@ -63,4 +65,5 @@ public abstract class Asset {
 		Color color = new Color(red, green, blue);
 		drawColorAsset(x, y, width, height, color);
 	}
+	
 }

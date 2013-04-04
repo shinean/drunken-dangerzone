@@ -23,7 +23,6 @@ import static org.lwjgl.opengl.GL11.*;
  * 
  */
 
-
 public class MainWindow {
 
     long lastFrame;
@@ -35,12 +34,8 @@ public class MainWindow {
 		
 		this.width = width;
 		this.height = height;
-		
-		if (debug) {
-			System.out.println("MainWindow initialised");
-		}
-		
-	}
+
+}
 
 	public void startDisplay() {
 		
@@ -55,7 +50,7 @@ public class MainWindow {
 		MainWindow.debug = true;
 		
 
-        Sprite playerSprite = SpriteStore.get("img/testSprite.png");
+        Sprite playerSprite = SpriteStore.fetch("testSprite");
         
 		
 		Player p = new Player(playerSprite, 150,150,20,20);
@@ -108,7 +103,7 @@ public class MainWindow {
 	
 	public static void main(String[] args) {
 		
-		MainWindow mw = new MainWindow(800,600);
+		MainWindow mw = new MainWindow(1280,720);
 		mw.startDisplay();
 		
 	}
