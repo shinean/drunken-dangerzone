@@ -6,6 +6,7 @@ import com.shidan.asset.player.Player;
 import com.shidan.asset.shader.ShaderLoader;
 import com.shidan.asset.sprite.Sprite;
 import com.shidan.asset.sprite.SpriteStore;
+import com.shidan.core.Props;
 import com.shidan.core.exception.NoSpriteFoundException;
 
 import org.lwjgl.LWJGLException;
@@ -103,7 +104,7 @@ public class MainWindow {
 	
 	public static void main(String[] args) {
 		
-		MainWindow mw = new MainWindow(1280,720);
+		MainWindow mw = new MainWindow(Props.DISPLAY_WIDTH,Props.DISPLAY_HEIGHT);
 		mw.startDisplay();
 		
 	}
