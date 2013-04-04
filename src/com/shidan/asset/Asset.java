@@ -1,12 +1,8 @@
 package com.shidan.asset;
 
 import java.awt.Color;
-
 import org.lwjgl.opengl.GL11;
-
 import com.shidan.asset.sprite.Sprite;
-import com.shidan.asset.sprite.SpriteStore;
-
 import static org.lwjgl.opengl.GL11.*;
 
 
