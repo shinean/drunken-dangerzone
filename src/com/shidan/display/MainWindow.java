@@ -2,16 +2,12 @@ package com.shidan.display;
 
 import static org.lwjgl.opengl.GL11.*;
 
-import java.util.ArrayList;
 
 import org.lwjgl.LWJGLException;
 import org.lwjgl.Sys;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 
-import com.shidan.asset.Asset;
-import com.shidan.asset.objects.GenericObject;
-import com.shidan.asset.objects.Primitives;
 import com.shidan.asset.player.Player;
 import com.shidan.asset.sprite.Sprite;
 import com.shidan.asset.sprite.SpriteStore;
