@@ -2,6 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b96f911c-ac1e-4cef-bcdb-82a239007582" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/spritemap.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/shidan/asset/objects/GenericObject.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/shidan/core/Props.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/shidan/asset/sprite/SpriteConstants.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/shidan/asset/draw/Primitives.java" afterPath="$PROJECT_DIR$/src/com/shidan/asset/objects/Primitives.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/shidan/asset/Asset.java" afterPath="$PROJECT_DIR$/src/com/shidan/asset/Asset.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/shidan/display/MainWindow.java" afterPath="$PROJECT_DIR$/src/com/shidan/display/MainWindow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/shidan/asset/player/Player.java" afterPath="$PROJECT_DIR$/src/com/shidan/asset/player/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/shidan/asset/sprite/Sprite.java" afterPath="$PROJECT_DIR$/src/com/shidan/asset/sprite/Sprite.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/shidan/asset/sprite/SpriteStore.java" afterPath="$PROJECT_DIR$/src/com/shidan/asset/sprite/SpriteStore.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="drunken-dangerzone.iws" />
@@ -74,55 +84,7 @@
     <favorites_list name="drunken-dangerzone" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Player.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/player/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="34" selection-start="1962" selection-end="1962" vertical-scroll-proportion="0.48257372">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Detector.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/detector/Detector.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="17" selection-start="2225" selection-end="2225" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Asset.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/Asset.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="17" selection-start="796" selection-end="796" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainWindow.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/shidan/display/MainWindow.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="30" selection-start="1670" selection-end="1670" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Primitives.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/draw/Primitives.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="25" selection-start="2664" selection-end="2664" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -723,13 +685,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/draw/Primitives.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="37" selection-start="1071" selection-end="1071" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/player/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="66" column="16" selection-start="1474" selection-end="1474" vertical-scroll-proportion="0.0">
@@ -791,37 +746,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/draw/Primitives.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="25" selection-start="2664" selection-end="2664" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/shidan/display/MainWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="30" selection-start="1670" selection-end="1670" vertical-scroll-proportion="0.0">
+        <state line="76" column="30" selection-start="1760" selection-end="1760" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/Asset.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="17" selection-start="796" selection-end="796" vertical-scroll-proportion="0.0">
+        <state line="40" column="17" selection-start="767" selection-end="767" vertical-scroll-proportion="-0.32707775">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/detector/Detector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="17" selection-start="2225" selection-end="2225" vertical-scroll-proportion="0.0">
+        <state line="53" column="17" selection-start="2225" selection-end="2225" vertical-scroll-proportion="0.3163539">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/player/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="34" selection-start="1962" selection-end="1962" vertical-scroll-proportion="0.48257372">
+        <state line="50" column="45" selection-start="1259" selection-end="1259" vertical-scroll-proportion="-4.906166">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

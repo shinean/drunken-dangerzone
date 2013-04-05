@@ -1,19 +1,17 @@
 package com.shidan.display;
 
-import java.util.ArrayList;
+import static org.lwjgl.opengl.GL11.*;
 
-import com.shidan.asset.player.Player;
-import com.shidan.asset.shader.ShaderLoader;
-import com.shidan.asset.sprite.Sprite;
-import com.shidan.asset.sprite.SpriteStore;
-import com.shidan.core.exception.NoSpriteFoundException;
 
 import org.lwjgl.LWJGLException;
 import org.lwjgl.Sys;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 
-import static org.lwjgl.opengl.GL11.*;
+import com.shidan.asset.player.Player;
+import com.shidan.asset.sprite.Sprite;
+import com.shidan.asset.sprite.SpriteStore;
+import com.shidan.core.Props;
 
 /**
  * MainWindow class. Center of all. 
@@ -22,7 +20,6 @@ import static org.lwjgl.opengl.GL11.*;
  * @author Sándor Juhász
  * 
  */
-
 
 public class MainWindow {
 
@@ -35,12 +32,8 @@ public class MainWindow {
 		
 		this.width = width;
 		this.height = height;
-		
-		if (debug) {
-			System.out.println("MainWindow initialised");
-		}
-		
-	}
+
+}
 
 	public void startDisplay() {
 		
@@ -53,32 +46,40 @@ public class MainWindow {
 		}
 
 		MainWindow.debug = true;
-		
 
-        Sprite playerSprite = SpriteStore.get("img/testSprite.png");
+        Sprite playerSprite = SpriteStore.fetch("testSprite");
         
-		
 		Player p = new Player(playerSprite, 150,150,20,20);
 
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
-        glOrtho(0,800,0,600,1,-1);
+        glOrtho(0,Props.DISPLAY_WIDTH,0,Props.DISPLAY_HEIGHT,1,-1);
         glMatrixMode(GL_MODELVIEW);
         
-        //Sprite player = SpriteStore.get("/home/jdaniel/Pictures/dafuq.png");
+        /*
+        ArrayList<Sprite> spriteMap = SpriteStore.getSpriteMapRow("spritemap", 0, 31, 31);
+        GenericObject go = new GenericObject();
+        int i = 0;
+        */
         
-        if (p != null);	// needed, because if the sprite could not be read, SpriteStore returns null.
-
-		while (!Display.isCloseRequested()) {
+        while (!Display.isCloseRequested()) {
             int delta = getDelta();
 			// TODO logic
-            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+            
+            /*
+            for (Sprite s : spriteMap) {
+            	go.drawAsset(s, 50+i, 50, s.getWidth(), s.getHeight());
+            	i+=50;
+            }
+            i = 0;
+            */
+            
             p.processInput(delta);
             p.drawViewCone();
             p.drawAsset();
-
-
+          
             Display.update();
             Display.sync(60);
 		}
@@ -108,7 +109,7 @@ public class MainWindow {
 	
 	public static void main(String[] args) {
 		
-		MainWindow mw = new MainWindow(800,600);
+		MainWindow mw = new MainWindow(Props.DISPLAY_WIDTH,Props.DISPLAY_HEIGHT);
 		mw.startDisplay();
 		
 	}

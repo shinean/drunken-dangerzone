@@ -1,8 +1,6 @@
-package com.shidan.asset.draw;
+package com.shidan.asset.objects;
 
 import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.opengl.GL20.*;
-import org.lwjgl.util.vector.Vector2f;
 
 /**
  * Primitive drawing class
@@ -85,6 +83,17 @@ public class Primitives {
             glVertex2d(x4,y4);
         glEnd();
     }
+    
+    
+    public static void texturedQuad(double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4) {
+        glBegin(GL_QUADS);
+            glVertex2d(x1,y1);
+            glVertex2d(x2,y2);
+            glVertex2d(x3,y3);
+            glVertex2d(x4,y4);
+        glEnd();
+    }
+    
 
     /**
      * Draws a circle
