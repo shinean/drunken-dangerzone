@@ -1,5 +1,10 @@
 package com.shidan.asset.objects;
 
+import org.lwjgl.util.vector.Vector2f;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import static org.lwjgl.opengl.GL11.*;
 
 /**
@@ -112,6 +117,45 @@ public class Primitives {
 
         }
         glEnd();
+
+    }
+
+    public static double getDistance(double x1, double y1, double x2, double y2) {
+        return Math.sqrt(Math.pow(x2 - x1,2)+Math.pow(y2 - y1,2));
+    }
+
+    public static HashMap<String,Object> circleRadius(double cx, double cy, double r, int num_segments, int mode) {
+        if (mode == 1) {
+            glBegin(GL_LINE_LOOP);
+        }
+        ArrayList<Vector2f> a = new ArrayList<Vector2f> ();
+        Vector2f tv = null;
+        for(int i = 0; i < num_segments; i++){
+            double theta = 2.0f * Math.PI * i / num_segments;
+            double x = r * Math.cos(theta);
+            double y = r * Math.sin(theta);
+            if (mode == 1) {
+                glVertex2d(x + cx, y + cy);
+            }
+            tv = new Vector2f((float)x + (float)cx,(float)y+(float)cy);
+            a.add(tv);
+        }
+        if (mode == 1) {
+            glEnd();
+        }
+
+        if (mode == 1) {
+            for (Vector2f t : a) {
+                line(cx,cy,t.getX(),t.getY(),"1,1,1","1,1,1");
+            }
+        }
+
+        HashMap<String,Object> infoHash = new HashMap<String, Object>();
+        infoHash.put("vertices",a);
+        Vector2f testHelper = a.get(0);
+        double distance = Math.sqrt(Math.pow(testHelper.getX() - cx,2) + Math.pow(testHelper.getY() - cy,2));
+        infoHash.put("radiusLength",distance);
+        return infoHash;
     }
 
 }

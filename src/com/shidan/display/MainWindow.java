@@ -3,6 +3,7 @@ package com.shidan.display;
 import static org.lwjgl.opengl.GL11.*;
 
 
+import com.shidan.asset.objects.GenericObject;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.Sys;
 import org.lwjgl.opengl.Display;
@@ -12,6 +13,8 @@ import com.shidan.asset.player.Player;
 import com.shidan.asset.sprite.Sprite;
 import com.shidan.asset.sprite.SpriteStore;
 import com.shidan.core.Props;
+
+import java.util.ArrayList;
 
 /**
  * MainWindow class. Center of all. 
@@ -56,11 +59,11 @@ public class MainWindow {
         glOrtho(0,Props.DISPLAY_WIDTH,0,Props.DISPLAY_HEIGHT,1,-1);
         glMatrixMode(GL_MODELVIEW);
         
-        /*
+
         ArrayList<Sprite> spriteMap = SpriteStore.getSpriteMapRow("spritemap", 0, 31, 31);
         GenericObject go = new GenericObject();
         int i = 0;
-        */
+
         
         while (!Display.isCloseRequested()) {
             int delta = getDelta();
@@ -68,15 +71,14 @@ public class MainWindow {
 
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             
-            /*
+
             for (Sprite s : spriteMap) {
             	go.drawAsset(s, 50+i, 50, s.getWidth(), s.getHeight());
             	i+=50;
             }
             i = 0;
-            */
-            
-            p.processInput(delta);
+            p.setDelta(delta);
+            p.processInput();
             p.drawViewCone();
             p.drawAsset();
           

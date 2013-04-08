@@ -11,7 +11,7 @@ import com.shidan.asset.sprite.Sprite;
 
 public interface Moveable {
 
-	public void processInput(int delta);
+	public void processInput();
 	
 	public void drawAsset(Sprite sprite, float x, float y, float width, float height);
 	

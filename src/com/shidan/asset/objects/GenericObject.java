@@ -33,6 +33,7 @@ public void drawAsset(Sprite sprite, float x, float y, float width, float height
 			glTexCoord2f(0, 0);
 			glVertex2f(x, y + height);
 		glEnd();
+        glDisable(GL_TEXTURE_2D);
 		glPopMatrix();
 
 	}

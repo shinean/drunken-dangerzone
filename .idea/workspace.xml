@@ -2,31 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b96f911c-ac1e-4cef-bcdb-82a239007582" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/spritemap.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/shidan/asset/objects/GenericObject.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/shidan/core/Props.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/shidan/asset/sprite/SpriteConstants.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/shidan/asset/draw/Primitives.java" afterPath="$PROJECT_DIR$/src/com/shidan/asset/objects/Primitives.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/shidan/asset/Asset.java" afterPath="$PROJECT_DIR$/src/com/shidan/asset/Asset.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/shidan/asset/lights/SpotLight.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/shidan/asset/objects/GenericObject.java" afterPath="$PROJECT_DIR$/src/com/shidan/asset/objects/GenericObject.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/shidan/display/MainWindow.java" afterPath="$PROJECT_DIR$/src/com/shidan/display/MainWindow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/shidan/asset/modifier/Moveable.java" afterPath="$PROJECT_DIR$/src/com/shidan/asset/modifier/Moveable.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/shidan/asset/player/Player.java" afterPath="$PROJECT_DIR$/src/com/shidan/asset/player/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/shidan/asset/sprite/Sprite.java" afterPath="$PROJECT_DIR$/src/com/shidan/asset/sprite/Sprite.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/shidan/asset/sprite/SpriteStore.java" afterPath="$PROJECT_DIR$/src/com/shidan/asset/sprite/SpriteStore.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/shidan/asset/objects/Primitives.java" afterPath="$PROJECT_DIR$/src/com/shidan/asset/objects/Primitives.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/shidan/core/Props.java" afterPath="$PROJECT_DIR$/src/com/shidan/core/Props.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="drunken-dangerzone.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="b96f911c-ac1e-4cef-bcdb-82a239007582" time="1365145417009" ignored="false" />
-    <file path="/fragment.java" changelist="b96f911c-ac1e-4cef-bcdb-82a239007582" time="1364933396580" ignored="false" />
-    <file path="/Player.java" changelist="b96f911c-ac1e-4cef-bcdb-82a239007582" time="1365086888321" ignored="false" />
+    <file path="/Dummy.txt" changelist="b96f911c-ac1e-4cef-bcdb-82a239007582" time="1365407752245" ignored="false" />
+    <file path="/fragment.java" changelist="b96f911c-ac1e-4cef-bcdb-82a239007582" time="1365156028377" ignored="false" />
+    <file path="/Player.java" changelist="b96f911c-ac1e-4cef-bcdb-82a239007582" time="1365412037131" ignored="false" />
     <file path="/AssetLoader.java" changelist="b96f911c-ac1e-4cef-bcdb-82a239007582" time="1364896467280" ignored="false" />
-    <file path="/MainWindow.java" changelist="b96f911c-ac1e-4cef-bcdb-82a239007582" time="1365081608633" ignored="false" />
-    <file path="/Primitives.java" changelist="b96f911c-ac1e-4cef-bcdb-82a239007582" time="1365086736772" ignored="false" />
+    <file path="/MainWindow.java" changelist="b96f911c-ac1e-4cef-bcdb-82a239007582" time="1365156549614" ignored="false" />
+    <file path="/Primitives.java" changelist="b96f911c-ac1e-4cef-bcdb-82a239007582" time="1365411455098" ignored="false" />
     <file path="/ShaderLoader.java" changelist="b96f911c-ac1e-4cef-bcdb-82a239007582" time="1365076127396" ignored="false" />
     <file path="/Moveable.java" changelist="b96f911c-ac1e-4cef-bcdb-82a239007582" time="1365081687810" ignored="false" />
     <file path="/AreaCollide.java" changelist="b96f911c-ac1e-4cef-bcdb-82a239007582" time="1365082130298" ignored="false" />
     <file path="/Collidable.java" changelist="b96f911c-ac1e-4cef-bcdb-82a239007582" time="1365082372994" ignored="false" />
     <file path="/Detector.java" changelist="b96f911c-ac1e-4cef-bcdb-82a239007582" time="1365086368927" ignored="false" />
+    <file path="/GenericObject.java" changelist="b96f911c-ac1e-4cef-bcdb-82a239007582" time="1365152624954" ignored="false" />
+    <file path="/Lights.java" changelist="b96f911c-ac1e-4cef-bcdb-82a239007582" time="1365156087340" ignored="false" />
+    <file path="/SpotLight.java" changelist="b96f911c-ac1e-4cef-bcdb-82a239007582" time="1365154498959" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +41,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -75,7 +76,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -84,7 +84,50 @@
     <favorites_list name="drunken-dangerzone" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="Player.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/player/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="74" column="42" selection-start="2173" selection-end="2173" vertical-scroll-proportion="0.40214476">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Primitives.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/objects/Primitives.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="123" column="66" selection-start="3664" selection-end="3664" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3903#3913#0" expanded="true" />
+                <element signature="e#4593#4609#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Moveable.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/modifier/Moveable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="29" selection-start="238" selection-end="238" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainWindow.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/shidan/display/MainWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="77" column="68" selection-start="1768" selection-end="1768" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -102,21 +145,21 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/djavorszky/player/Player.java" />
-        <option value="$PROJECT_DIR$/src/com/djavorszky/asset/loader/AssetLoader.java" />
-        <option value="$PROJECT_DIR$/src/com/djavorszky/display/MainWindow.java" />
-        <option value="$PROJECT_DIR$/src/com/djavorszky/asset/player/Player.java" />
-        <option value="$PROJECT_DIR$/assets/shaders/vertextTest.vert" />
-        <option value="$PROJECT_DIR$/src/com/shidan/asset/shader/ShaderLoader.java" />
         <option value="$PROJECT_DIR$/assets/shaders/vertexTest.vert" />
         <option value="$PROJECT_DIR$/assets/shaders/fragmentTest.vert" />
-        <option value="$PROJECT_DIR$/src/com/shidan/display/MainWindow.java" />
-        <option value="$PROJECT_DIR$/src/com/shidan/asset/modifier/Moveable.java" />
         <option value="$PROJECT_DIR$/src/com/shidan/asset/collision/AreaCollide.java" />
         <option value="$PROJECT_DIR$/src/com/shidan/asset/collision/Collidable.java" />
         <option value="$PROJECT_DIR$/src/com/shidan/asset/draw/Primitives.java" />
         <option value="$PROJECT_DIR$/src/com/shidan/asset/Asset.java" />
         <option value="$PROJECT_DIR$/src/com/shidan/asset/detector/Detector.java" />
+        <option value="$PROJECT_DIR$/src/com/shidan/core/Props.java" />
+        <option value="$PROJECT_DIR$/src/com/shidan/asset/objects/GenericObject.java" />
+        <option value="$PROJECT_DIR$/src/com/shidan/asset/lights/Lights.java" />
+        <option value="$PROJECT_DIR$/src/com/shidan/asset/lights/SpotLight.java" />
+        <option value="$PROJECT_DIR$/src/tutorials/Lights.java" />
+        <option value="$PROJECT_DIR$/src/com/shidan/asset/modifier/Moveable.java" />
+        <option value="$PROJECT_DIR$/src/com/shidan/display/MainWindow.java" />
+        <option value="$PROJECT_DIR$/src/com/shidan/asset/objects/Primitives.java" />
         <option value="$PROJECT_DIR$/src/com/shidan/asset/player/Player.java" />
       </list>
     </option>
@@ -155,6 +198,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -170,6 +215,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="drunken-dangerzone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drunken-dangerzone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drunken-dangerzone" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tutorials" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -257,59 +320,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="shader" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drunken-dangerzone" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drunken-dangerzone" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shidan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="asset" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="player" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drunken-dangerzone" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drunken-dangerzone" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shidan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="asset" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="detector" />
+              <option name="myItemId" value="objects" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -341,24 +352,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drunken-dangerzone" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drunken-dangerzone" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value=".idea" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -383,14 +378,14 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.MainWindow">
-    <configuration default="false" name="MainWindow" type="Application" factoryName="Application" temporary="true">
+    <configuration default="false" name="Lights" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.djavorszky.display.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="com.shidan.display.MainWindow" />
+      <option name="MAIN_CLASS_NAME" value="tutorials.Lights" />
       <option name="VM_PARAMETERS" value="-Djava.library.path=lib/lwjgl/native/linux" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
@@ -496,12 +491,30 @@
       <patterns />
       <method />
     </configuration>
-    <list size="1">
+    <configuration default="false" name="MainWindow" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="com.shidan.display.MainWindow" />
+      <option name="VM_PARAMETERS" value="-Djava.library.path=lib/lwjgl/native/linux" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="drunken-dangerzone" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Application.MainWindow" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Lights" />
     </list>
     <recent_temporary>
       <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Application.MainWindow" />
+        <item index="0" class="java.lang.String" itemvalue="Application.Lights" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -589,10 +602,10 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32998326" sideWeight="0.49772727" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32888147" sideWeight="0.5007576" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32998326" sideWeight="0.4969697" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32888147" sideWeight="0.4939394" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998326" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -600,7 +613,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.67001677" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998326" sideWeight="0.4969697" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32998326" sideWeight="0.4969697" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -678,33 +691,6 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/player/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="30" selection-start="4110" selection-end="4110" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/player/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="16" selection-start="1474" selection-end="1474" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/player/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="16" selection-start="1474" selection-end="1474" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/player/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state line="94" column="45" selection-start="2328" selection-end="2328" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
@@ -722,33 +708,14 @@
         <state line="51" column="82" selection-start="1170" selection-end="1170" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/sprite/SpriteStore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="0" selection-start="842" selection-end="842" vertical-scroll-proportion="0.7280702" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/shidan/service/CounterService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="43" selection-start="197" selection-end="197" vertical-scroll-proportion="0.12064343" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/modifier/Moveable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="38" selection-start="247" selection-end="247" vertical-scroll-proportion="0.34210527">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/shader/ShaderLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="42" selection-start="746" selection-end="746" vertical-scroll-proportion="0.57894737">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/shidan/display/MainWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="30" selection-start="1760" selection-end="1760" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -767,9 +734,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/sprite/SpriteStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="36" selection-start="1698" selection-end="1698" vertical-scroll-proportion="0.6380697">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tutorials/Lights.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="72" selection-start="1197" selection-end="1197" vertical-scroll-proportion="0.43699732">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/lights/SpotLight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="118" selection-start="1298" selection-end="1298" vertical-scroll-proportion="0.43699732" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/objects/GenericObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="30" selection-start="535" selection-end="535" vertical-scroll-proportion="0.43699732">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/shidan/core/Props.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="48" selection-start="185" selection-end="185" vertical-scroll-proportion="0.48257372">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/shidan/display/MainWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="68" selection-start="1768" selection-end="1768" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/modifier/Moveable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="29" selection-start="238" selection-end="238" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/objects/Primitives.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="123" column="66" selection-start="3664" selection-end="3664" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3903#3913#0" expanded="true" />
+            <element signature="e#4593#4609#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/shidan/asset/player/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="45" selection-start="1259" selection-end="1259" vertical-scroll-proportion="-4.906166">
+        <state line="74" column="42" selection-start="2173" selection-end="2173" vertical-scroll-proportion="0.40214476">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -4,6 +4,7 @@ import static org.lwjgl.opengl.GL11.*;
 //import static org.lwjgl.opengl.GL20.*; if we want to make shaders
 
 import com.shidan.asset.detector.Detector;
+
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 
@@ -14,7 +15,11 @@ import com.shidan.asset.objects.Primitives;
 import com.shidan.asset.sprite.Sprite;
 import com.shidan.core.Props;
 
+import org.lwjgl.util.glu.GLU;
 import org.lwjgl.util.vector.Vector2f;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 
 /**
@@ -33,6 +38,10 @@ public class Player extends Asset implements Moveable {
     private double coneChoke;
     private float speed;
     private Sprite sprite;
+    private int delta;
+
+    private double orientationX = 0;
+    private double orientationY = 0;
 
     public Player(Sprite sprite, float x, float y, float width, float height) {
         this.sprite = sprite;
@@ -54,6 +63,19 @@ public class Player extends Asset implements Moveable {
             glPushMatrix();
             glColor3f(1f, 1f, 1f);
             glBindTexture(GL_TEXTURE_2D, sprite.getTextureId());
+
+
+            float ax = x + (width / 2);
+            float ay = y + (height / 2);
+            double d = Math.sqrt(Math.pow(orientationX - ax,2) + Math.pow(orientationY - ay,2));
+            HashMap<String,Object> info = Primitives.circleRadius(ax, ay, d, 60, 0);
+            ArrayList<Vector2f> v = (ArrayList<Vector2f>)info.get("vertices");
+            double heightLength = Primitives.getDistance(orientationX, orientationY, v.get(0).getX(), v.get(0).getY());
+
+            float angle = (float)(Math.sin(d/heightLength)) - 360;
+            glTranslatef(ax,ay,1);
+            glRotatef(angle*delta,0,0,1);
+            glTranslatef(-ax, -ay, 0);
             glBegin(GL_QUADS);
                 glTexCoord2f(0, 1);
                 glVertex2f(x, y);
@@ -65,6 +87,8 @@ public class Player extends Asset implements Moveable {
                 glVertex2f(x, y + height);
             glEnd();
             glPopMatrix();
+            glDisable(GL_TEXTURE_2D);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -75,6 +99,8 @@ public class Player extends Asset implements Moveable {
      */
     public void drawViewCone() {
         try {
+
+
             glColor3f(0f, 0.0f, 0.0f);
             // calculate the square's middle point
             double ax = x + (width / 2);
@@ -100,25 +126,28 @@ public class Player extends Asset implements Moveable {
             double cx = -y2 + x1;
             double cy = x2 + y1;
             // draw all this shit
-            glLoadIdentity();
             glPushMatrix();
             // Player to cursor line
-            Primitives.line(ax, ay, x1, y1, "0,0,0", "0,0,0");
+            Primitives.line(ax, ay, x1, y1, "1,1,1", "1,1,1");
             // Perpeticular line 1
-            Primitives.line(x1,  y1, bx, by,"0,1,0","0,0,1");
+            Primitives.line(x1,  y1, bx, by,"1,1,1", "1,1,1");
             // Perpeticular line 2
-            Primitives.line(x1,  y1, cx, cy,"0,1,0","0,0,1");
+            Primitives.line(x1,  y1, cx, cy,"1,1,1", "1,1,1");
             // Side line 1
-            Primitives.line(ax,  ay, bx, by,"0,0,0","0,1,0");
+            Primitives.line(ax,  ay, bx, by,"1,1,1", "1,1,1");
             // Side line 2
-            Primitives.line(ax,  ay, cx, cy,"0,0,0","0,1,0");
+            Primitives.line(ax,  ay, cx, cy,"1,1,1", "1,1,1");
             glPopMatrix();
+
             glPushMatrix();
             // Orientation indicator
             glColor3f(0f,1.0f,0.0f);
             Primitives.circle(x1,y1,5,10);
             glPopMatrix();
             testCollidableObject();
+            orientationX = x1;
+            orientationY = y1;
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -134,7 +163,7 @@ public class Player extends Asset implements Moveable {
     /**
      * Player controls
      */
-    public void processInput(int delta) {
+    public void processInput() {
         if (Keyboard.isKeyDown(Keyboard.KEY_A)) {
             this.x -= speed * delta;
         }
@@ -185,15 +214,24 @@ public class Player extends Asset implements Moveable {
         return Mouse.getY();
     }
 
+    public void setDelta(int delta) {
+        this.delta = delta;
+    }
+
 
 
     /** Only for testing **/
     float testColor;
     public void testCollidableObject() {
-        glColor3f(1.0f,testColor,0.0f);
+        glEnable(GL_COLOR_MATERIAL);
+        glColorMaterial(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE);
         glPushMatrix();
+        glNormal3f(0, 0, 1.0f);
+        // define colour
+        glColor3f(1.0f, testColor, 1.0f);
         Primitives.quad(100,300,200,300,200,400,100,400);
         glPopMatrix();
+        glDisable(GL_COLOR_MATERIAL);
     }
 
 }
